@@ -12,8 +12,13 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { Link } from "react-router-dom";
 
-import { Link } from "@mui/material";
+// import { Link } from "@mui/material";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -37,10 +42,18 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static">
+    // <ul>
+    //   <li>
+    //     <Link to="/">Home</Link>
+    //   </li>
+    //   <li>
+    //     <Link to="/products">Product</Link>
+    //   </li>
+    // </ul>
+    <AppBar position="static" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
+          <Link sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} to="/">
             <img
               src="https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-header-logo.svg?v=1698918200"
               alt=""
@@ -58,7 +71,7 @@ function Navbar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "black",
               textDecoration: "none",
             }}
           ></Typography>
@@ -70,9 +83,10 @@ function Navbar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="black"
             >
               <MenuIcon />
+              {/* <SearchOutlinedIcon /> */}
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -92,11 +106,11 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Shop</Typography>
               </MenuItem>
@@ -106,15 +120,23 @@ function Navbar() {
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Pages</Typography>
               </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link
+                  to="/products"
+                  style={{ color: "black", textDecoration: "none" }}
+                >
+                  Product
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
 
-          <Link sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
+          {/* <Link sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
             <img
               src="https://nnccnnm154l10hkm-52485554369.shopifypreview.com/cdn/shop/files/demo-kids-header-logo.svg?v=1698918200"
               alt=""
             />
-          </Link>
+          </Link> */}
 
           <Typography
             variant="h5"
@@ -128,7 +150,7 @@ function Navbar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "black",
               textDecoration: "none",
             }}
           ></Typography>
@@ -140,29 +162,82 @@ function Navbar() {
             }}
           >
             <Button
+              // className={style.button}
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "black",
+                display: "block",
+                fontWeight: "800",
+                fontFamily: "Bradley hand,cursive",
+              }}
             >
               Shop
             </Button>
             <Button
+              className={style.button}
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "black",
+                display: "block",
+                fontWeight: "800",
+                fontFamily: "Bradley hand,cursive",
+              }}
             >
               Trending
             </Button>
             <Button
+              className={style.button}
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "black",
+                display: "block",
+                fontWeight: "800",
+                fontFamily: "Bradley hand,cursive",
+              }}
             >
               Pages
+            </Button>
+            <Button
+              className={style.button}
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "black",
+                display: "block",
+                fontWeight: "800",
+                fontFamily: "Bradley hand,cursive",
+              }}
+            >
+              <Link
+                to="/products"
+                style={{
+                  color: "black",
+                  display: "block",
+                  fontWeight: "800",
+                  fontFamily: "Bradley hand,cursive",
+                  textDecoration: "none",
+                }}
+              >
+                Product
+              </Link>
             </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <SearchOutlinedIcon />
+                <Link to="/login" style={{ color: "grey" }}>
+                  <PersonOutlineIcon />
+                </Link>
+                <Link to="/wishlist" style={{ color: "grey" }}>
+                  <FavoriteBorderIcon />
+                </Link>
+
+                <ShoppingBagOutlinedIcon />
               </IconButton>
             </Tooltip>
             <Menu
@@ -181,11 +256,21 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Link to="/login">
+                  <PersonOutlineIcon />
+                </Link>
+                <Link to="/wishlist">
+                  <FavoriteBorderIcon />
+                </Link>
+
+                <ShoppingBagOutlinedIcon />
+              </IconButton>
             </Menu>
           </Box>
         </Toolbar>

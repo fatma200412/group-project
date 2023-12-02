@@ -1,5 +1,5 @@
 import React from "react";
-import CardsProduct from "../../components/cards";
+import CardsProduct from "../../../components/cards";
 import style from "./index.module.css";
 
 function Home() {
