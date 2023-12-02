@@ -236,11 +236,12 @@ function Navbar() {
                 <Link to="/wishlist" style={{ color: "grey" }}>
                   <FavoriteBorderIcon />
                 </Link>
-
-                <ShoppingBagOutlinedIcon />
+                <Link style={{ color: "grey" }}>
+                  <ShoppingBagOutlinedIcon />
+                </Link>
               </IconButton>
             </Tooltip>
-            <Menu
+            {/* <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -256,11 +257,6 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {/* {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))} */}
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Link to="/login">
                   <PersonOutlineIcon />
@@ -271,7 +267,7 @@ function Navbar() {
 
                 <ShoppingBagOutlinedIcon />
               </IconButton>
-            </Menu>
+            </Menu> */}
           </Box>
         </Toolbar>
       </Container>
