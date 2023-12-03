@@ -31,7 +31,6 @@ function Home() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                // padding: "18px",
                 color: "#F7FCF7",
                 fontWeight: "500",
                 fontFamily: "Bradley hand,cursive",
